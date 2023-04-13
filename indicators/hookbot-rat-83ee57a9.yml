@@ -1,0 +1,32 @@
+title: HookBot C2 Panel 83ee57a9
+description: | 
+  Detects the `HookBot` C2 panel page. 
+  `HookBot` is an Android-based RAT that
+  impersonates popular applications used 
+  in Poland such as Allegro, mBank & 
+  Millennium Bank.
+  
+references: 
+  - https://tracker.viriback.com
+  - https://twitter.com/CSIRT_KNF/status/1621474400318132224
+  - https://urlscan.io/result/83ee57a9-1068-4e6b-9a19-543f7b7abaca
+  - https://urlscan.io/result/f693897f-34a3-47ce-b2c0-1b2a54f0292a
+
+detection: 
+
+  pageTitle: 
+    js|contains: 'HOOKBOT PANEL'
+
+  cssFile: 
+    html|contains: 'main.da6aabde.css'
+    
+  loginAudioFile:
+    html|contains: 'login_sd.mp4'
+
+  condition: pageTitle and cssFile and loginAudioFile
+
+
+tags: 
+  - malware.hookbot
+  - malware 
+  - target_country.poland
